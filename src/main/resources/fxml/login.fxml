@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.LoginController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #90C8AC;"
+                  BorderPane.alignment="CENTER">
+         <Label alignment="CENTER" layoutX="-2.0" layoutY="189.0" prefHeight="45.0" prefWidth="206.0" text="EVOH"
+                textFill="WHITE">
+            <font>
+               <Font size="35.0"/>
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutY="170.0" prefHeight="26.0" prefWidth="204.0" text="Welcome to"
+                textFill="WHITE">
+            <font>
+               <Font size="22.0"/>
+            </font>
+         </Label>
+         <AnchorPane layoutX="204.0" minHeight="400.0" minWidth="350.0" prefHeight="400.0" prefWidth="396.0"
+                     style="-fx-background-color: #F3F0EB;" AnchorPane.bottomAnchor="0.0"
+                     AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TextField id="usernameTextField" fx:id="usernameTextField" layoutX="152.0" layoutY="129.0"
+                       prefHeight="30.0" prefWidth="200.0" promptText="Username"/>
+            <PasswordField id="passwordTextField" fx:id="passwordTextField" layoutX="152.0" layoutY="179.0"
+                           prefHeight="30.0" prefWidth="200.0" promptText="Password"/>
+            <Button id="buttonSignin" fx:id="loginButton" layoutX="52.0" layoutY="240.0" mnemonicParsing="false"
+                    onAction="#login" prefHeight="11.0" prefWidth="300.0"
+                    style="-fx-background-color: #90C8AC; -fx-border-width: 2;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Button>
+            <Button id="buttonGuest" layoutX="209.0" layoutY="317.0" mnemonicParsing="false" onAction="#guest"
+                    prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #90C8AC; -fx-border-width: 2;"
+                    text="LOGIN AS GUEST" textFill="WHITE">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </Button>
+            <Button id="buttonSignup" layoutX="52.0" layoutY="317.0" mnemonicParsing="false" onAction="#register"
+                    prefHeight="40.0" prefWidth="154.0" style="-fx-background-color: #90C8AC; -fx-border-width: 2;"
+                    text="REGISTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Button>
+            <Label layoutX="52.0" layoutY="179.0" prefHeight="30.0" prefWidth="100.0" text="Password:"
+                   textAlignment="CENTER" textFill="#797474"/>
+            <Label layoutX="52.0" layoutY="129.0" prefHeight="30.0" prefWidth="100.0" text="Username:"
+                   textAlignment="CENTER" textFill="#797474"/>
+            <Label id="labelMessage" fx:id="labelMessage" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="210.0"
+                   prefHeight="30.0" prefWidth="202.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font size="9.0"/>
+               </font>
+            </Label>
+            <Label alignment="BOTTOM_LEFT" layoutX="52.0" layoutY="51.0" prefHeight="61.0" prefWidth="120.0"
+                   text="Log in" textFill="#797474">
+               <font>
+                  <Font size="32.0"/>
+               </font>
+            </Label>
+            <Text fill="#797474" layoutX="52.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Not a member?" wrappingWidth="187.826171875"/>
+         </AnchorPane>
+         <Text fill="WHITE" layoutX="85.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="⏻">
+            <font>
+               <Font size="35.0"/>
+            </font>
+         </Text>
+      </AnchorPane>
+   </center>
+</BorderPane>

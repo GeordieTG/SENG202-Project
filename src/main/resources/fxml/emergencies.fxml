@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.EmergenciesController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="698.0" style="-fx-background-color: #F3F0EB;"
+                  BorderPane.alignment="CENTER">
+         <Text fill="#797474" layoutX="19.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Emergency Services">
+            <font>
+               <Font size="40.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="19.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Medical Emergency">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Button layoutX="507.0" layoutY="170.0" mnemonicParsing="false" onAction="#viewHospital" prefHeight="40.0"
+                 prefWidth="150.0" style="-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC;" text="View On Map"
+                 textFill="WHITE">
+            <font>
+               <Font size="18.0"/>
+            </font>
+         </Button>
+         <Button layoutX="507.0" layoutY="330.0" mnemonicParsing="false" onAction="#viewFireStation" prefHeight="40.0"
+                 prefWidth="150.0" style="-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC;" text="View On Map"
+                 textFill="WHITE">
+            <font>
+               <Font size="18.0"/>
+            </font>
+         </Button>
+         <Button layoutX="512.0" layoutY="496.0" mnemonicParsing="false" onAction="#viewPoliceStation" prefHeight="40.0"
+                 prefWidth="150.0" style="-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC;" text="View On Map"
+                 textFill="WHITE">
+            <font>
+               <Font size="18.0"/>
+            </font>
+         </Button>
+         <Text fill="#797474" layoutX="284.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Healthline - 0800 611 116  or Ambulance - 111">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="19.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Closest Hospital:" wrappingWidth="295.6591796875">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="19.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Fire Emergency">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="585.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fire - 111">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="19.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Closest Fire Station:" wrappingWidth="295.6591796875">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="19.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Police Emergency">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="287.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Police - 111 or Police (non-emergencies) - 105">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="19.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Closest Police Station:" wrappingWidth="295.6591796875">
+            <font>
+               <Font size="16.0"/>
+            </font>
+         </Text>
+         <Text fx:id="hospitalText" fill="#797474" layoutX="19.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Text" wrappingWidth="468.7294921875"/>
+         <Text fx:id="fireStationText" fill="#797474" layoutX="19.0" layoutY="370.0" strokeType="OUTSIDE"
+               strokeWidth="0.0" text="Text" wrappingWidth="465.7294921875"/>
+         <Text fx:id="policeStationText" fill="#797474" layoutX="19.0" layoutY="536.0" strokeType="OUTSIDE"
+               strokeWidth="0.0" text="Text" wrappingWidth="473.7294921875"/>
+      </AnchorPane>
+   </center>
+</BorderPane>

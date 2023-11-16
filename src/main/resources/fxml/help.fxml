@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #F3F0EB;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.HelpController">
+   <center>
+      <AnchorPane prefHeight="625.0" prefWidth="685.0" BorderPane.alignment="CENTER">
+         <Text fill="#797474" layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Questions? We've got answers!" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="20.15234375">
+            <font>
+               <Font size="36.0" />
+            </font>
+         </Text>
+         <TreeView fx:id="treeView" layoutX="24.0" layoutY="76.0" prefHeight="491.0" prefWidth="643.0" style="-fx-background-color: #90C8AC; -fx-border-color: #90C8AC;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="76.0" />
+      </AnchorPane>
+   </center>
+</BorderPane>

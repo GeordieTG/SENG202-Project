@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.RegisterVehicleController">
+   <center>
+      <AnchorPane minHeight="600.0" minWidth="685.0" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #F3F0EB;" BorderPane.alignment="CENTER">
+         <Label alignment="TOP_LEFT" layoutX="19.0" layoutY="31.0" prefHeight="58.0" prefWidth="419.0" text="Register Vehicle" textFill="#797474" AnchorPane.topAnchor="31.0">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Label>
+         <Label layoutX="127.0" layoutY="295.0" text="Plate Number" textFill="#797474" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="441.0">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Label>
+         <Label layoutX="127.0" layoutY="194.0" prefHeight="27.0" prefWidth="64.0" text="Model" textFill="#797474" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="494.0">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Label>
+         <Label layoutX="127.0" layoutY="347.0" text="Fuel Type" textFill="#797474" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="475.0">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Label>
+         <TextField fx:id="ModelText" layoutX="341.0" layoutY="194.0" prefHeight="24.0" prefWidth="171.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="173.0" />
+         <TextField fx:id="YearText" layoutX="341.0" layoutY="244.0" prefHeight="24.0" prefWidth="171.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="173.0" />
+         <TextField fx:id="PlateText" layoutX="341.0" layoutY="294.0" prefHeight="24.0" prefWidth="171.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="173.0" />
+         <Label layoutX="127.0" layoutY="245.0" text="Year" textFill="#797474" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="519.0">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Label>
+         <Button layoutX="273.0" layoutY="514.0" minHeight="35.0" mnemonicParsing="false" onAction="#complete" prefHeight="35.0" prefWidth="128.0" style="-fx-background-color: #90C8AC;" text="COMPLETE" textFill="WHITE" AnchorPane.leftAnchor="273.0" AnchorPane.topAnchor="514.0">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
+         <Label fx:id="testLabel" alignment="CENTER" layoutX="246.0" layoutY="472.0" prefHeight="31.0" prefWidth="182.0"
+                textFill="RED" />
+         <ComboBox fx:id="fuelTypeDropDown" layoutX="341.0" layoutY="345.0" prefHeight="24.0" prefWidth="171.0" promptText="Fuel Type" style="-fx-background-color: #90C8AC;" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="173.0" />
+         <Label layoutX="127.0" layoutY="399.0" text="Range" textFill="#797474" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="503.0">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Label>
+         <TextField fx:id="RangeText" layoutX="341.0" layoutY="397.0" prefHeight="24.0" prefWidth="171.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="173.0" />
+         <Label layoutX="127.0" layoutY="424.0" text="Maximum Range: 836 km" textFill="#797474" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="390.0">
+            <font>
+               <Font name="System Italic" size="13.0" />
+            </font>
+         </Label>
+         <Label layoutX="21.0" layoutY="84.0" prefHeight="27.0" prefWidth="491.0" text="Here you can register your vehicle!" textFill="#797474">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Label>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.EditChargerController">
+   <center>
+        <AnchorPane  prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #F3F0EB;" BorderPane.alignment="CENTER">
+            <Label layoutX="16.0" layoutY="12.0" prefHeight="49.0" prefWidth="560.0" text="Edit Charger" textFill="#797474">
+                <font>
+                    <Font size="40.0" />
+                </font>
+            </Label>
+            <Label layoutX="109.0" layoutY="102.0" prefHeight="30.0" prefWidth="205.0" text="Charger Name:" textAlignment="CENTER" textFill="#797474" />
+            <Label layoutX="109.0" layoutY="147.0" prefHeight="30.0" prefWidth="200.0" text="Latitude:" textAlignment="CENTER" textFill="#797474" />
+            <Label layoutX="109.0" layoutY="192.0" prefHeight="30.0" prefWidth="200.0" text="Longitude:" textAlignment="CENTER" textFill="#797474" />
+            <Label layoutX="109.0" layoutY="237.0" prefHeight="30.0" prefWidth="200.0" text="Operator:" textAlignment="CENTER" textFill="#797474" />
+            <Label layoutX="109.0" layoutY="282.0" prefHeight="30.0" prefWidth="200.0" text="Owner:" textAlignment="CENTER" textFill="#797474" />
+            <Label layoutX="109.0" layoutY="327.0" prefHeight="30.0" prefWidth="200.0" text="Address:" textAlignment="CENTER" textFill="#797474" />
+            <Label layoutX="324.0" layoutY="372.0" prefHeight="30.0" prefWidth="145.0" text="Maximum Time Limit:" textAlignment="CENTER" textFill="#797474" />
+         <Button layoutX="476.0" layoutY="551.0" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #90C8AC; -fx-border-width: 2;" text="SAVE" textFill="WHITE">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+         <Button layoutX="9.0" layoutY="551.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #90C8AC; -fx-border-width: 2;" text="BACK" textFill="WHITE">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+         <TextField fx:id="chargerName" layoutX="324.0" layoutY="105.0" prefHeight="24.0" prefWidth="215.0" />
+         <TextField fx:id="chargerLatitude" layoutX="324.0" layoutY="150.0" prefHeight="24.0" prefWidth="215.0" />
+         <TextField fx:id="chargerLongitude" layoutX="324.0" layoutY="195.0" prefHeight="24.0" prefWidth="215.0" />
+         <TextField fx:id="chargerOperator" layoutX="324.0" layoutY="240.0" prefHeight="24.0" prefWidth="215.0" />
+         <TextField fx:id="chargerOwner" layoutX="324.0" layoutY="285.0" prefHeight="24.0" prefWidth="215.0" />
+         <TextField fx:id="chargerMaxTime" layoutX="474.0" layoutY="375.0" prefHeight="24.0" prefWidth="65.0" />
+         <TextField fx:id="chargerAddress" layoutX="324.0" layoutY="330.0" prefHeight="24.0" prefWidth="215.0" />
+         <TextField fx:id="chargerRating" layoutX="324.0" layoutY="507.0" prefHeight="24.0" prefWidth="215.0" />
+         <Label fx:id="labelSaved" layoutX="216.0" layoutY="556.0" prefHeight="30.0" prefWidth="253.0" textAlignment="CENTER" textFill="RED" />
+
+         <Label layoutX="109.0" layoutY="507.0" prefHeight="30.0" prefWidth="200.0" text="Review:" textAlignment="CENTER" textFill="#797474" />
+         <Label layoutX="109.0" layoutY="372.0" prefHeight="30.0" prefWidth="110.0" text="Carpark count:" textAlignment="CENTER" textFill="#797474" />
+         <Label layoutX="109.0" layoutY="417.0" prefHeight="30.0" prefWidth="110.0" text="Always Open:" textAlignment="CENTER" textFill="#797474" />
+         <Label layoutX="324.0" layoutY="417.0" prefHeight="30.0" prefWidth="140.0" text="Payment for Carpark:" textAlignment="CENTER" textFill="#797474" />
+         <Label layoutX="109.0" layoutY="462.0" prefHeight="30.0" prefWidth="149.0" text="Tourist Attraction:" textAlignment="CENTER" textFill="#797474" />
+         <CheckBox fx:id="alwaysOpenCheck" layoutX="287.0" layoutY="423.0" mnemonicParsing="false" />
+         <CheckBox fx:id="touristAttractCheck" layoutX="287.0" layoutY="468.0" mnemonicParsing="false" />
+         <CheckBox fx:id="parkPaymentCheck" layoutX="518.0" layoutY="423.0" mnemonicParsing="false" />
+         <TextField fx:id="carparkCountTextField" layoutX="240.0" layoutY="375.0" prefHeight="24.0" prefWidth="65.0" />
+         <Label layoutX="18.0" layoutY="59.0" prefHeight="25.0" prefWidth="625.0" text="Here you can edit details about your selected charger." textFill="#797474">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+        </AnchorPane>
+   </center>
+</BorderPane>

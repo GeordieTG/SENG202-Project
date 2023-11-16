@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet & OSM Map Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<script>
+    // console.log("Leaflet OSM map")
+    let map;
+    let markers = [];
+    let currentLocationMarker;
+    var javaScriptBridge; // must be declared as var (will not be correctly assigned in java with let keyword)
+    var route;
+    var iRoute;
+
+    /**
+     * This object can be returned to our java code, where we can call the functions we define inside it
+     */
+    let jsConnector = {
+        addMarker: addMarker,
+        addRoute: addRoute,
+        removeRoute: removeRoute,
+        initMap: initMap,
+        clearMarkers: clearMarkers,
+        zoomInOnLocation : zoomInOnLocation,
+        setCurrentLocation : setCurrentLocation,
+        viewChargerOnMap : viewChargerOnMap,
+    };
+
+
+    /**
+     * creates and initialises the Google map, also defines on click event that calls java code
+     */
+    function initMap(currentLat, currentLng) {
+        var mapOptions = {
+            center: [currentLat, currentLng],
+            zoom: 11
+        }
+        map = new L.map('map', mapOptions);
+        new L.TileLayer('https://tile.csse.canterbury.ac.nz/hot/{z}/{x}/{y}.png', { // UCs tilemap server
+            attribution: '© OpenStreetMap contributors<br>Served by University of Canterbury'
+        }).addTo(map)
+
+        // Stops the map from zooming in when double-clicked
+        map.doubleClickZoom.disable();
+
+
+        // Event for adding the users current location when the map is double-clicked
+        map.on("dblclick", (map_event) => {
+            var latlng = map.mouseEventToLatLng(map_event.originalEvent)
+            javaScriptBridge.addCurrentLocation(latlng.lat,latlng.lng)
+            setCurrentLocation(latlng.lat, latlng.lng)
+        })
+    }
+
+    /**
+     * Custom green icon
+     */
+    var greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom blue icon
+     */
+    var blueIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom yellow icon
+     */
+    var yellowIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom black icon
+     */
+    var blackIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom grey icon
+     */
+    var greyIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom violet icon
+     */
+    var violetIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom orange icon
+     */
+    var orangeIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom gold icon
+     */
+    var goldIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Custom red icon
+     */
+    var redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    /**
+     * Adds a marker to the map and stores it in the markers array for later use (e.g. removal)
+     * Sets the popup according to the logged in and favourite parameters
+     * @param loggedin 1 if user is logged in, 0 if they are not
+     * @param favourite 1 if the passed in charger location is in the users favourite charger list, 0 if not
+     * @param title tooltip to display on hover
+     * @param lat latitude to place marker at
+     * @param lng longitude to place marker at
+     */
+    function addMarker(title, lat, lng, loggedin, favourite) {
+        let m = new L.Marker([lat, lng])
+        m.setIcon(greenIcon);
+        if (loggedin == 0) {
+            var popup = L.popup()
+                .setContent(title + `<br> <button onclick="viewCharger('${encodeURIComponent(JSON.stringify(lat))}', '${encodeURIComponent(JSON.stringify(lng))}')">View Charger</button>`);
+        } else {
+            var latStr = encodeURIComponent(JSON.stringify(lat));
+            var lngStr = encodeURIComponent(JSON.stringify(lng));
+            if (favourite === 0) {
+                var popup = L.popup()
+                    .setContent(title + `<br><button data-title="${title}" data-lat="${latStr}" data-lng="${lngStr}" class="not-favourite">Add to Favourites</button>` + `<button onclick="viewCharger('${encodeURIComponent(JSON.stringify(lat))}', '${encodeURIComponent(JSON.stringify(lng))}')">View Charger</button>`);
+            } else {
+                var popup = L.popup()
+                    .setContent(title + `<br><button data-title="${title}" data-lat="${latStr}" data-lng="${lngStr}" class="favourite">Remove From Favourites</button>` + `<button onclick="viewCharger('${encodeURIComponent(JSON.stringify(lat))}', '${encodeURIComponent(JSON.stringify(lng))}')">View Charger</button>`);
+                m.setIcon(goldIcon);
+            }
+        }
+
+        m.bindPopup(popup)
+        m.addTo(map)
+        markers.push(m)
+    }
+
+    /**
+    * Removes the old current location marker, adds the new one and updates the current location
+    */
+    function setCurrentLocation(lat,lng) {
+        if (currentLocationMarker != null) {
+            map.removeLayer(currentLocationMarker);
+        }
+        let m = new L.Marker([lat, lng]);
+        m.setIcon(blackIcon)
+        var popup = L.popup().setContent("Current Location")
+        m.bindPopup(popup).openPopup()
+        m.addTo(map)
+        currentLocationMarker = m;
+    }
+
+
+    /**
+     * Calls the javaScriptBridge to add the given charger at this lat/long to the users favourite charger list
+     * @param latStr latitude of the charger encoded as a URIComponent and String
+     * @param lngStr longitude of the charger encoded as a URIComponent and String
+     */
+    function addChargerToFavourites(latStr, lngStr) {
+        var lat = JSON.parse(decodeURIComponent(latStr))
+        var lng = JSON.parse(decodeURIComponent(lngStr))
+
+        javaScriptBridge.addChargerToFavourites(lat, lng);
+    }
+
+    /**
+     * Calls the javaScriptBridge to remove the given charger at this lat/long from the users favourite charger list
+     * @param latStr latitude of the charger encoded as a URIComponent and String
+     * @param lngStr longitude of the charger encoded as a URIComponent and String
+     */
+    function removeChargerFromFavourites(latStr, lngStr) {
+        var lat = JSON.parse(decodeURIComponent(latStr))
+        var lng = JSON.parse(decodeURIComponent(lngStr))
+
+        javaScriptBridge.removeChargerFromFavourites(lat, lng);
+    }
+
+    /**
+     * Calls the javaScriptBridge to display a popup of the charger information
+     * @param lat latitude of the charger that the button has been pushed on
+     * @param lng longitude of the charger that the button has been pushed on
+     */
+    function viewCharger(lat, lng) {
+        lat = JSON.parse(decodeURIComponent(lat))
+        lng = JSON.parse(decodeURIComponent(lng))
+
+        javaScriptBridge.viewCharger(lat, lng);
+    }
+
+    /**
+     * Adds a route
+     */
+    function addRoute(locations) {
+        removeRoute()
+        var LocationArray = JSON.parse(locations);
+        var wayPointArray = [];
+        for (let i = 0; i < LocationArray.length; i++) {
+            let currentLocation = LocationArray[i]
+            wayPointArray.push(L.latLng(currentLocation.latitude, currentLocation.longitude))
+        }
+        console.log("Adding route");
+        route = L.routing.control({
+            waypoints: wayPointArray,
+            routeWhileDragging: false}).addTo(map)
+        route.addEventListener('routeselected', saveIRoute);
+    }
+
+    /**
+     * Saves a route
+     * @param e
+     */
+    function saveIRoute(e) {
+        javaScriptBridge.saveRouteInfo(JSON.stringify(e.route.instructions));
+        var markerArray = extractLatLong(route.getWaypoints());
+        javaScriptBridge.representRoute(JSON.stringify(markerArray), JSON.stringify(e.route.summary.totalDistance));
+    }
+
+    /**
+     * Removes a route
+     */
+    function removeRoute() {
+        if (route) {
+            route.remove()
+        }
+    }
+
+    /**
+     * Gets the lat and lng of all the markers in current route
+     * @param markerArray
+     * @returns {any[]}
+     */
+    function extractLatLong(markerArray) {
+
+        var newArray = new Array();
+
+        for (let i = 0; i < markerArray.length; i++) {
+            newArray[i] =  markerArray[i].latLng;
+        }
+        return newArray;
+    }
+
+    /**
+     * Clears all markers from the map
+     */
+    function clearMarkers() {
+        for (marker of markers) {
+            map.removeLayer(marker);
+        }
+        markers = [];
+    }
+
+    function viewChargerOnMap(chargerLat, chargerLng) {
+        map.setView(L.latLng(chargerLat, chargerLng), 20);
+    }
+
+    /**
+     * s the map in on the given location
+     * @param lat Latitude of the desired location
+     * @param lat Latitude of the desired location
+     * @param lng Longitude of the desired location
+     * @param addrStr
+     */
+    function zoomInOnLocation(lat,lng,addrStr) {
+        map.setView(L.latLng(lat, lng), 15);
+
+        let m = new L.Marker([lat,lng]);
+        m.setIcon(redIcon)
+        var popup = L.popup().setContent(addrStr)
+        m.bindPopup(popup)
+
+        m.addTo(map)
+        m.openPopup()
+        setTimeout(() => {  map.removeLayer(m); }, 10000);
+    }
+
+    /**
+     * Document Listener which is used when a button is clicked
+     * Gets the className of the button and completes correlated functionality
+     */
+    document.addEventListener("click", e => {
+        var target = e.target;
+        if (target.className === "favourite") {
+            // Get lat and lng from data-lat and data-lng attributes
+            let { title, lat, lng } = target.dataset;
+            lat = parseFloat(lat);
+            lng = parseFloat(lng);
+
+            // This is currently a favourite, so we remove from favourites,
+            // and update button to be "Add Favourite";
+            removeChargerFromFavourites(lat, lng);
+            target.innerText = "Add to Favourites";
+            target.className = "not-favourite";
+
+            // We update the marker to be red
+            var marker = markers.find(marker => marker.getLatLng().equals(L.latLng(lat, lng)));
+            marker.setIcon(greenIcon);
+            let newPopup = L.popup().setContent(title + `<br><button data-title="${title}" data-lat="${encodeURIComponent(JSON.stringify(lat))}" data-lng="${encodeURIComponent(JSON.stringify(lng))}" class="not-favourite">Add to Favourites</button>` + `<button onclick="viewCharger('${encodeURIComponent(JSON.stringify(lat))}', '${encodeURIComponent(JSON.stringify(lng))}')">View Charger</button>`);
+            marker.bindPopup(newPopup);
+        } else if (target.className === "not-favourite") {
+
+            let { title, lat, lng } = target.dataset;
+            lat = parseFloat(lat);
+            lng = parseFloat(lng);
+
+            // This is not currently a favourite, so we add to favourites,
+            // and update button to be "Remove Favourite";
+            addChargerToFavourites(lat, lng);
+            target.innerText = "Remove From Favourites";
+            target.className = "favourite";
+
+            // We update the marker to be green
+            var marker = markers.find(marker => marker.getLatLng().equals(L.latLng(lat, lng)));
+            marker.setIcon(goldIcon);
+            let newPopup = L.popup().setContent(title + `<br><button data-title="${title}" data-lat="${encodeURIComponent(JSON.stringify(lat))}" data-lng="${encodeURIComponent(JSON.stringify(lng))}" class="favourite">Remove From Favourites</button>` + `<button onclick="viewCharger('${encodeURIComponent(JSON.stringify(lat))}', '${encodeURIComponent(JSON.stringify(lng))}')">View Charger</button>`);
+            marker.bindPopup(newPopup);
+
+        }
+
+
+    });
+
+</script>
+</body>
+</html>

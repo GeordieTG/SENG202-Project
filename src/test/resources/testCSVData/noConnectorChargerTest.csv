@@ -1,0 +1,2 @@
+X,Y,OBJECTID,name,operator,owner,address,is24Hours,carParkCount,hasCarparkCost,maxTimeLimit,hasTouristAttraction,latitude,longitude,currentType,dateFirstOperational,numberOfConnectors,connectorsList,hasChargingCost
+1366541.235,5153202.164,1,YHA MT COOK,MERIDIAN ENERGY LIMITED,MERIDIAN ENERGY LIMITED,"4 Kitchener Dr, Mount Cook National Park 7999, New Zealand",TRUE,1,FALSE,Unlimited,FALSE,-43.73745,170.100913,AC,2020/05/01 00:00:00+00,0,,TRUE

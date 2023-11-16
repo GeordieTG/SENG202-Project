@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mainWindow" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.MainController">
+   <left>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="215.0" minHeight="600.0" minWidth="215.0"
+                  prefHeight="600.0" prefWidth="215.0" style="-fx-background-color: #90C8AC;"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <Text fill="WHITE" layoutX="56.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EVOH">
+            <font>
+               <Font size="36.0"/>
+            </font>
+         </Text>
+         <Button layoutX="12.0" layoutY="150.0" mnemonicParsing="false" onAction="#openMapWindow" prefHeight="24.0"
+                 prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="MAP VIEW" textFill="#73a9ad"/>
+         <Button layoutX="12.0" layoutY="180.0" mnemonicParsing="false" onAction="#openTableWindow" prefHeight="24.0"
+                 prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="TABLE VIEW" textFill="#73a9ad"/>
+         <Button layoutX="12.0" layoutY="240.0" mnemonicParsing="false" onAction="#openEmergenciesWindow"
+                 prefHeight="24.0" prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="EMERGENCIES"
+                 textFill="#73a9ad"/>
+         <Button fx:id="loginButton" layoutX="12.0" layoutY="330.0" mnemonicParsing="false" onAction="#openLogin"
+                 prefHeight="24.0" prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="LOG IN"
+                 textFill="#73a9ad" visible="false"/>
+         <Button fx:id="logOutButton" layoutX="12.0" layoutY="330.0" mnemonicParsing="false" onAction="#logOut"
+                 prefHeight="24.0" prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="LOG OUT"
+                 textFill="#73a9ad" visible="false"/>
+         <Button fx:id="registerVehicleButton" layoutX="12.0" layoutY="210.0" mnemonicParsing="false"
+                 onAction="#openRegisterVehicleWindow" prefHeight="24.0" prefWidth="186.0"
+                 style="-fx-background-color: #F5F0BB;" text="REGISTER VEHICLE" textFill="#73a9ad"/>
+         <Button disable="true" layoutX="12.0" layoutY="330.0" mnemonicParsing="false" onAction="#openHelpWindow"
+                 opacity="0.0" prefHeight="24.0" prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="HELP"
+                 textFill="#73a9ad"/>
+         <Button layoutX="12.0" layoutY="270.0" mnemonicParsing="false" onAction="#openSettingsWindow" prefHeight="24.0"
+                 prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="PROFILE" textFill="#73a9ad"/>
+         <Text fill="WHITE" layoutX="86.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="⏻">
+            <font>
+               <Font size="36.0"/>
+            </font>
+         </Text>
+         <Text fx:id="userLoggedInText" fill="WHITE" layoutX="5.0" layoutY="591.1328125" strokeType="OUTSIDE"
+               strokeWidth="0.0" text="Not Logged In" AnchorPane.bottomAnchor="5.8671875" AnchorPane.leftAnchor="5.0"/>
+         <Text fill="WHITE" layoutX="4.0" layoutY="503.7421875" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Current Location:  " AnchorPane.bottomAnchor="93.2578125" AnchorPane.leftAnchor="4.0"/>
+         <Text fx:id="currentLocationTextLine1" fill="WHITE" layoutX="13.0" layoutY="525.0" strokeType="OUTSIDE"
+               strokeWidth="0.0" text="Jack Erskine" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="13.0"/>
+         <Button layoutX="12.0" layoutY="300.0" mnemonicParsing="false" onAction="#openHelpWindow" prefHeight="24.0"
+                 prefWidth="186.0" style="-fx-background-color: #F5F0BB;" text="HELP" textFill="#73a9ad"/>
+         <Text fx:id="currentLocationTextLine2" fill="WHITE" layoutX="13.0" layoutY="547.0" strokeType="OUTSIDE"
+               strokeWidth="0.0" text="University of Canterbury" AnchorPane.bottomAnchor="50.0"/>
+         <Text fx:id="currentLocationTextLine3" fill="WHITE" layoutX="12.0" layoutY="568.265625" strokeType="OUTSIDE"
+               strokeWidth="0.0" text="Christchurch" AnchorPane.bottomAnchor="28.734375"/>
+      </AnchorPane>
+   </left>
+   <center>
+      <Pane maxHeight="600.0" maxWidth="685.0" prefHeight="600.0" prefWidth="685.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

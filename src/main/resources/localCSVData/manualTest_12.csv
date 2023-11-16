@@ -1,0 +1,2 @@
+X,Y,OBJECTID,name,operator,owner,address,is24Hours,carParkCount,hasCarparkCost,maxTimeLimit,hasTouristAttraction,latitude,longitude,currentType,dateFirstOperational,numberOfConnectors,connectorsList,hasChargingCost
+1366541.2354,5153202.1642,1,A_Manual_Test_12,MERIDIAN ENERGY LIMITED,MERIDIAN ENERGY LIMITED,"141 Peverel street",True,1,False,Unlimited,False,-43.535103,172.5895,AC,2020/05/01 00:00:00+00,1,"{AC, 22 kW, Type 2 Socketed, Status: Operative, Count:1}",True

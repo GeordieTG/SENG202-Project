@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.GeneralProfileController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #F3F0EB;" BorderPane.alignment="CENTER">
+         <ToolBar layoutX="707.0" layoutY="14.0" prefHeight="54.0" prefWidth="72.0" style="-fx-background-radius: 20; -fx-background-color: #90C8AC;" AnchorPane.rightAnchor="14.0">
+            <AnchorPane />
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/expensiveEV.png" />
+            </ImageView>
+         </ToolBar>
+         <Button layoutX="165.0" layoutY="230.0" mnemonicParsing="false" onAction="#openViewProfileWindow" prefWidth="400.0" style="-fx-background-color: #90C8AC #90C8AC;" text="View Details" textFill="WHITE" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="200.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+         <Button layoutX="165.0" layoutY="260.0" mnemonicParsing="false" onAction="#openVehiclesWindow" prefWidth="400.0" style="-fx-background-color: #90C8AC #90C8AC;" text="Vehicles" textFill="WHITE" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="260.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+         <Button layoutX="165.0" layoutY="380.0" mnemonicParsing="false" onAction="#openPreviousJourneysWindow" prefWidth="400.0" style="-fx-background-color: #90C8AC #90C8AC;" text="Previous Journeys" textFill="WHITE" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="380.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+         <Button layoutX="165.0" layoutY="320.0" mnemonicParsing="false" onAction="#openFavouriteChargersWindow" prefWidth="400.0" style="-fx-background-color: #90C8AC #90C8AC;" text="Favourite Chargers" textFill="WHITE" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="320.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+         <Text fill="#797474" layoutX="14.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile View">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="14.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here you can view your details, vehicles, previous">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Text>
+         <Text fill="#797474" layoutX="14.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="journeys and your favourite chargers">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Text>
+      </AnchorPane>
+   </center>
+</BorderPane>

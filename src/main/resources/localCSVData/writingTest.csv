@@ -1,0 +1,2 @@
+X,Y,OBJECTID,name,operator,owner,address,is24Hours,carParkCount,hasCarparkCost,maxTimeLimit,hasTouristAttraction,latitude,longitude,currentType,dateFirstOperational,numberOfConnectors,connectorsList,hasChargingCost
+not used,not used,not used,"null","null","null","null",true,-1,false,-1,false,0.0,0.0,null,null,0,"{null,0,null, Status: null, Count: 0}",false

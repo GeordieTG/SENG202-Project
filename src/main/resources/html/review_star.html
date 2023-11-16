@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+        body {
+            background-color: #F3F0EB;
+        }
+
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="pane">
+<span id="star-1" class="fa fa-star"></span>
+<span id="star-2" class="fa fa-star"></span>
+<span id="star-3" class="fa fa-star"></span>
+<span id="star-4" class="fa fa-star"></span>
+<span id="star-5" class="fa fa-star"></span>
+</div>
+
+<script>
+
+    let jsConnector = {
+        toggle : toggle,
+    };
+
+
+    function toggle (num) {
+        let target = document.getElementById("pane");
+        let all = target.getElementsByClassName("fa-star");
+        for (let j = 0; j < all.length; j++) {
+            if (j < num) {
+                all[j].classList.add("checked");
+            }
+            else {
+                all[j].classList.remove("checked");
+            }
+        }
+    }
+</script>
+</body>
+</html>

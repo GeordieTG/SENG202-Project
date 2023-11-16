@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.MapController">
+   <center>
+       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+           <WebView fx:id="mapWebView" layoutY="52.0" prefWidth="685.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+           <JFXDrawer fx:id="journeyDrawer" defaultDrawerSize="500.0" direction="RIGHT" layoutX="571.0" layoutY="458.0" prefHeight="92.0" prefWidth="329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="458.0" />
+       </AnchorPane>
+   </center>
+   <top>
+       <ToolBar prefHeight="50.0" prefWidth="685.0" style="-fx-background-color: #F3F0EB;" BorderPane.alignment="CENTER">
+           <TextField fx:id="searchBar" prefHeight="28.0" prefWidth="183.0" promptText="Search Address">
+              <font>
+                  <Font size="14.0" />
+              </font>
+           </TextField>
+           <Button mnemonicParsing="false" onAction="#searchLocation" prefHeight="28.0" prefWidth="78.0" style="-fx-background-color: #90C8AC;" text="SEARCH" textFill="WHITE">
+              <font>
+                  <Font size="14.0" />
+              </font>
+           </Button>
+           <MenuButton mnemonicParsing="false" onAction="#filterChargers" prefHeight="28.0" prefWidth="86.0" style="-fx-background-color: #90C8AC;" text="FILTER" textFill="WHITE">
+               <items>
+                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+                       <content>
+                           <CheckBox fx:id="alwaysOpenCheck" mnemonicParsing="false" text="Always Open" />
+                       </content>
+                   </CustomMenuItem>
+                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+                       <content>
+                           <CheckBox fx:id="carParkNeedsPaymentCheck" mnemonicParsing="false" text="No Payment Required" />
+                       </content>
+                   </CustomMenuItem>
+                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+                       <content>
+                           <CheckBox fx:id="touristAttractionCheck" text="Tourist Attraction" />
+                       </content>
+                   </CustomMenuItem>
+                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                       <content>
+                           <MenuButton mnemonicParsing="false" text="Connectors">
+                               <items>
+                                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                                       <content>
+                                           <CheckBox fx:id="type1TetheredCheckBox" text="Type 1 Tethered" />
+                                       </content>
+                                   </CustomMenuItem>
+                                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                                       <content>
+                                           <CheckBox fx:id="type2TetheredCheckBox" text="Type 2 Tethered" />
+                                       </content>
+                                   </CustomMenuItem>
+                                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                                       <content>
+                                           <CheckBox fx:id="type2SocketedCheckBox" text="Type 2 Socketed" />
+                                       </content>
+                                   </CustomMenuItem>
+                                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                                       <content>
+                                           <CheckBox fx:id="type2CCSCheckBox" text="Type 2 CCS" />
+                                       </content>
+                                   </CustomMenuItem>
+                                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                                       <content>
+                                           <CheckBox fx:id="CHAdeMOCheckBox" text="CHAdeMO" />
+                                       </content>
+                                   </CustomMenuItem>
+                               </items>
+                           </MenuButton>
+                       </content>
+                   </CustomMenuItem>
+                   <MenuItem mnemonicParsing="false" text="Minimum Number of Parks">
+                       <graphic>
+                           <Slider fx:id="numberOfParksSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                       </graphic>
+                   </MenuItem>
+                   <MenuItem mnemonicParsing="false" text="Minimum Time Limit">
+                       <graphic>
+                           <Slider fx:id="maxTimeLimitSlider" blockIncrement="30.0" majorTickUnit="30.0" max="300.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                       </graphic>
+                   </MenuItem>
+                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+                       <content>
+                           <HBox prefHeight="30.0" prefWidth="200.0">
+                               <Button mnemonicParsing="false" onAction="#filterChargers" text="Apply">
+                                   <HBox.margin>
+                                       <Insets right="10.0" />
+                                   </HBox.margin>
+                               </Button>
+                               <Button mnemonicParsing="false" onAction="#clearFilters" text="Clear" />
+                           </HBox>
+                       </content>
+                   </CustomMenuItem>
+               </items>
+              <font>
+                  <Font size="14.0" />
+              </font>
+           </MenuButton>
+           <Button layoutX="265.0" layoutY="15.0" mnemonicParsing="false" onAction="#toggleRoute" prefHeight="28.0" prefWidth="124.0" style="-fx-background-color: #90C8AC;" text="PLAN JOURNEY" textFill="WHITE">
+              <font>
+                  <Font size="14.0" />
+              </font>
+           </Button>
+         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" />
+         <Label>
+            <graphic>
+               <ImageView fitHeight="28.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+      
+                  <image>
+                     <Image url="@../images/highres_black_marker.png" />
+                  </image>
+      
+               </ImageView>
+            </graphic>
+            <tooltip>
+               <Tooltip fx:id="blackTooltip" text="Current Location" />
+            </tooltip>
+         </Label>
+         <Label>
+            <graphic>
+               <ImageView fitHeight="28.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/highres_blue_marker.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <tooltip>
+               <Tooltip fx:id="blueTooltip" text="Journey" />
+            </tooltip>
+         </Label>
+         <Label>
+            <graphic>
+               <ImageView fitHeight="28.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/highres_green_marker.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <tooltip>
+               <Tooltip fx:id="greenTooltip" text="Charger Station" />
+            </tooltip>
+         </Label>
+         <Label>
+            <graphic>
+               <ImageView fitHeight="28.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/highres_red_marker.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <tooltip>
+               <Tooltip fx:id="redTooltip" text="Search Location" />
+            </tooltip>
+         </Label>
+         <Label>
+            <tooltip>
+               <Tooltip fx:id="greyTooltip" text="Favourited Charger" />
+            </tooltip>
+            <graphic>
+               <ImageView fitHeight="28.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/highres_yellow_marker.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Label>
+         <Label>
+            <tooltip>
+               <Tooltip fx:id="orangeTooltip" text="Favourited Charger" />
+            </tooltip>
+         </Label>
+       </ToolBar>
+   </top>
+</BorderPane>

@@ -1,0 +1,21 @@
+junit:
+  stage: test
+  script:
+    - echo "EVROAM_API_KEY=$EVROAM_API_KEY" >> ./src/main/resources/.env
+    - echo "EMAIL_PASSWORD=$EMAIL_PASSWORD" >> ./src/main/resources/.env
+    - mvn -B clean test
+
+checkStyle:
+  stage: test
+  script:
+    - mvn -B clean checkstyle:check
+    
+generate_artifacts:
+  stage: deploy
+  script:
+    - echo "EVROAM_API_KEY=$EVROAM_API_KEY" >> ./src/main/resources/.env
+    - echo "EMAIL_PASSWORD=$EMAIL_PASSWORD" >> ./src/main/resources/.env
+    - mvn -B clean package
+  artifacts:
+    paths:
+    - target/EVOH*.jar

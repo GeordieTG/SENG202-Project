@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team5.views.windowControllers.EditProfileController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #F3F0EB;" BorderPane.alignment="CENTER">
+         <Label layoutX="16.0" layoutY="34.0" text="Edit Profile" textFill="#797474">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Label>
+         <Button layoutX="14.0" layoutY="552.0" mnemonicParsing="false" onAction="#openViewProfileWindow" style="-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC;" text="Back" textFill="WHITE">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Button>
+         <Button layoutX="518.0" layoutY="552.0" mnemonicParsing="false" onAction="#updateProfileDetails" style="-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC;" text="Save Changes" textFill="WHITE">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Button>
+         <Label layoutX="84.0" layoutY="254.0" style="-fx-background-color-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC; -fx-background-radius: 20;" text="First Name:" textFill="#797474">
+            <font>
+               <Font size="20.0" />
+            </font></Label>
+         <Label layoutX="84.0" layoutY="356.0" style="-fx-background-color-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC; -fx-background-radius: 20;" text="Last Name:" textFill="#797474">
+            <font>
+               <Font size="20.0" />
+            </font></Label>
+         <Label layoutX="84.0" layoutY="458.0" text="Email:" textFill="#797474">
+            <font>
+               <Font size="20.0" />
+            </font></Label>
+         <Label layoutX="84.0" layoutY="152.0" style="-fx-background-color-fx-background-color: #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC #90C8AC; -fx-background-radius: 20;" text="Username:" textFill="#797474">
+            <font>
+               <Font size="20.0" />
+            </font></Label>
+         <TextField fx:id="newUsernameText" layoutX="285.0" layoutY="145.0" promptText="New Username">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
+         <TextField fx:id="newFirstNameText" layoutX="285.0" layoutY="247.0" promptText="New First Name">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
+         <TextField fx:id="newLastNameText" layoutX="285.0" layoutY="346.0" promptText="New Last Name">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
+         <TextField fx:id="newEmailText" layoutX="285.0" layoutY="451.0" promptText="New Email">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
+         <Label fx:id="testLabel" layoutX="157.0" layoutY="550.0" prefHeight="36.0" prefWidth="123.0" text="Label" visible="false" />
+         <Label layoutX="16.0" layoutY="84.0" text="Here you can edit your profile details." textFill="#797474">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </AnchorPane>
+   </center>
+</BorderPane>

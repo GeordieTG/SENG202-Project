@@ -1,0 +1,2 @@
+X,Y,OBJECTID,name,operator,owner,address,is24Hours,carParkCount,hasCarparkCost,maxTimeLimit,hasTouristAttraction,latitude,longitude,currentType,dateFirstOperational,numberOfConnectors,connectorsList,hasChargingCost
+1564870.1078,5174700.5047,279,Halswell,ChargeNet NZ,Orion New Zealand Ltd,"346 Halswell Rd, Christchurch 8025, New Zealand",True,1,False,Unlimited,False,-43.579833,172.564889,Mixed,,4,"{AC, 22 kW, Type 2 Socketed, Status: Operative, Count:2},{DC, 50 kW, CHAdeMO, Status: Operative, Count:1},{DC, 50 kW, Type 2 CCS, Status: Operative, Count:1}",True
